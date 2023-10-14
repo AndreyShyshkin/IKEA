@@ -8,27 +8,29 @@
   <?php wp_head(); ?>
 </head>
 
-<?php the_custom_logo(); ?>
-<?php get_search_form(); ?>
-<?php
-wp_nav_menu([
-  'theme_location' => 'services-header',
-  'container' => 'nav',
-  'container_class' => 'main-navigation',
-  'menu_class' => 'main-navigation__list',
-  'items_wrap' => '<ul class="%2$s">%3$s</ul>'
-]);
-?>
-<?php
-wp_nav_menu([
-  'theme_location' => 'menu-header',
-  'container' => 'nav',
-  'container_class' => 'main-navigation',
-  'menu_class' => 'main-navigation__list',
-  'items_wrap' => '<ul class="%2$s">%3$s</ul>'
-]);
-?>
-
 <body>
-  <header>
-  </header>
+  <div class="wrapper">
+    <header>
+      <div class="header__container">
+        <?php the_custom_logo(); ?>
+        <?php get_search_form(); ?>
+        <?php
+        wp_nav_menu([
+          'theme_location' => 'services-header',
+          'container' => 'nav',
+          'container_class' => 'services-navigation',
+          'menu_class' => 'services-navigation__list',
+          'items_wrap' => '<ul class="%2$s">%3$s</ul>'
+        ]);
+        ?>
+      </div>
+      <?php
+      wp_nav_menu([
+        'theme_location' => 'menu-header',
+        'container' => 'nav',
+        'container_class' => 'header-navigation',
+        'menu_class' => 'header-navigation__list',
+        'items_wrap' => '<ul class="%2$s">%3$s</ul>'
+      ]);
+      ?>
+    </header>

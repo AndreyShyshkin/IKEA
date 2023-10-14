@@ -56,7 +56,7 @@ function ikea_scripts()
         true
     );
     wp_enqueue_style(
-        'si-style',
+        'ikea-style',
         _ikea_assets_path('css/styles.css'),
         [],
         '1.0',
