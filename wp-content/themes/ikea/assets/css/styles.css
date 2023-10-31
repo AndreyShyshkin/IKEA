@@ -2,6 +2,7 @@
 body {
   margin: 0;
   padding: 0;
+  text-decoration: none;
 }
 
 li {
@@ -11,17 +12,4 @@ li {
 .wrapper {
   max-width: 1400px;
   margin: 0 auto;
-}
-
-.header__container {
-  display: flex;
-  height: 50px;
-}
-
-.services-navigation__list {
-  display: flex;
-}
-
-.header-navigation__list {
-  display: flex;
 }

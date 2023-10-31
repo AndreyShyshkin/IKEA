@@ -40,10 +40,6 @@ function ikea_setup()
 
 function ikea_scripts()
 {
-    wp_enqueue_script(
-        'jquery',
-        _ikea_assets_path('https://code.jquery.com/jquery-3.7.1.min.js'),
-    );
     wp_enqueue_style(
         'font-awesome',
         _ikea_assets_path('css/fontawesome-free-6.4.2-web/css/all.min.css'),
@@ -55,6 +51,13 @@ function ikea_scripts()
         '1.0',
         true
     );
+    wp_enqueue_script(
+        'js-slider',
+        _ikea_assets_path('js/slider.js'),
+        [],
+        '1.0',
+        true
+    );
     wp_enqueue_style(
         'ikea-style',
         _ikea_assets_path('css/styles.css'),
@@ -62,6 +65,31 @@ function ikea_scripts()
         '1.0',
         'all'
     );
+
+    wp_enqueue_style(
+        'ikea-style-header',
+        _ikea_assets_path('css/header.css'),
+        [],
+        '1.0',
+        'all'
+    );
+
+    wp_enqueue_style(
+        'ikea-style-login',
+        _ikea_assets_path('css/login.css'),
+        [],
+        '1.0',
+        'all'
+    );
+
+    wp_enqueue_style(
+        'ikea-style-product',
+        _ikea_assets_path('css/product.css'),
+        [],
+        '1.0',
+        'all'
+    );
+
     wp_dequeue_style('wp-block-library');
     wp_dequeue_style('bodhi-svgs-attachment');
     wp_dequeue_style('wp-embed');
