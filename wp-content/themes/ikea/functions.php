@@ -1,8 +1,16 @@
 <?php
 
+$widgets = [
+    'text-widget.php',
+];
+
+foreach ($widgets as $w) {
+    require_once(__DIR__ . '/inc/' . $w);
+}
+
 add_action('after_setup_theme', 'ikea_setup');
 add_action('wp_enqueue_scripts', 'ikea_scripts');
-//add_action('widgets_init', 'ikea_register');
+add_action('widgets_init', 'ikea_register');
 add_action('init', 'ikea_register_types');
 
 add_action('init', 'custom_login_redirect');
@@ -12,6 +20,7 @@ add_action('wp_ajax_custom_registration', 'custom_registration_callback');
 add_action('wp_ajax_nopriv_custom_registration', 'custom_registration_callback');
 
 add_filter('show_admin_bar', '__return_false');
+add_filter('ikea_widget_text', 'do_shortcode');
 
 remove_action('wp_head', 'feed_links_extra', 3);
 remove_action('wp_head', 'feed_links', 2);
@@ -95,11 +104,20 @@ function ikea_scripts()
     wp_dequeue_style('wp-embed');
     wp_deregister_script('wp-embed');
 }
-/*
+
 function ikea_register()
 {
+    register_sidebar([
+        'name' => 'Contact us',
+        'id' => 'ikea-contact-us',
+        'before_widget' => null,
+        'after_widget' => null
+    ]);
+
+    register_widget('ikea_widget_text');
 }
-*/
+
+
 function ikea_register_types()
 {
     register_post_type('products', [
